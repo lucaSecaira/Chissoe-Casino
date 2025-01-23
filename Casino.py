@@ -1,3 +1,18 @@
+import time
+print('Welcome to Chissoe Casino')
+time.sleep(1)
+print('We have a large selections of games here')
+time.sleep(1)
+print('Slots, Blackjack, Roulette, Higher or Lower, and Craps')
+activity = input('Would you like to play a game? Check your balance? or Earn some money 1/2/3')
+if activity = '1' :
+    gamechoice = input('Would you like to play Slots, Blackjack, Roulette, Higher or Lower, or Craps? 1/2/3/4/5')
+    if gamechoice = '4'
+        higherlower()
+elif activity = '2' :
+    print('You have $' + str(MoneyFunc())
+
+
 def MoneyFunc() :
     f = open('Money.txt', 'r')
     var = f.read().strip()
