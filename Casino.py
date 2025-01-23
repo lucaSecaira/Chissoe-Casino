@@ -85,7 +85,7 @@ def FullSlot():
 def slotgame():
     global money
     time.sleep(.4)
-    print('You have $' + str(money))
+    print('You have $' + str(MoneyFunc()))
     Slots()
 
 def Slots():
@@ -156,17 +156,17 @@ def Slots():
 
     if dice1 == dice2 == dice3 :
         again = input('You hit a MEGA JACKPOT! Want to try again?(y/n)')
-        money += 500
+        changeMoney(500)
         if again == 'y' :
             slotgame()
     elif dice1 == dice2 or dice2 == dice3 or dice1 == dice3 :
         again = input('You WON! Want to try again?(y/n)')
-        money += 25
+        changeMoney(25)
         if again == 'y' :
             slotgame()
     else :
         again = input('You lost... Want to try again?(y/n)')
-        money -= 10
+        changeMoney((money * -1))
         if again == 'y' :
             slotgame()
 #FullSlot()
