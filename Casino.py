@@ -71,3 +71,102 @@ def higherlower() :
         ready = input('Want to play again? yes or no ')
     time.sleep(1)
     print('Come again soon ')
+
+#SLOTS
+from random import randint
+import time
+money = 5000
+
+def FullSlot():
+    global money
+    print('Hello player, lets test your luck!')
+    time.sleep(.5)
+    slotgame()
+def slotgame():
+    global money
+    time.sleep(.4)
+    print('You have $' + str(money))
+    Slots()
+
+def Slots():
+    global money
+    time.sleep(.4)
+    print('You spin the slot machine')
+    time.sleep(.4)
+    dice1 = randint(0, 7)
+    slot1 = dice1
+    dice2 = randint(0, 7)
+    slot2 = dice2
+    dice3 = randint(0, 7)
+    slot3 = dice3
+
+    if slot1 == 0:
+        slot1 = '🍒'
+    elif slot1 == 1:
+        slot1 = '🔔'
+    elif slot1 == 2:
+        slot1 = '💰'
+    elif slot1 == 3:
+        slot1 = '🍓'
+    elif slot1 == 4:
+        slot1 = '7'
+    elif slot1 == 5:
+        slot1 = '❤'
+    elif slot1 == 6:
+        slot1 = '👅'
+    elif slot1 == 7:
+        slot1 = '🥝'
+
+    if slot3 == 0:
+        slot3 = '🍒'
+    elif slot3 == 1:
+        slot3 = '🔔'
+    elif slot3 == 2:
+        slot3 = '💰'
+    elif slot3 == 3:
+        slot3 = '🍓'
+    elif slot3 == 4:
+        slot3 = '7'
+    elif slot3 == 5:
+        slot3 = '❤'
+    elif slot3 == 6:
+        slot3 = '👅'
+    elif slot3 == 7:
+        slot3 = '🥝'
+
+    if slot2 == 0:
+        slot2 = '🍒'
+    elif slot2 == 1:
+        slot2 = '🔔'
+    elif slot2 == 2:
+        slot2 = '💰'
+    elif slot2 == 3:
+        slot2 = '🍓'
+    elif slot2 == 4:
+        slot2 = '7'
+    elif slot2 == 5:
+        slot2 = '❤'
+    elif slot2 == 6:
+        slot2 = '👅'
+    elif slot2 == 7:
+        slot2 = '🥝'
+    time.sleep(.3)
+    print(slot1, slot2, slot3)
+    time.sleep(.4)
+
+    if dice1 == dice2 == dice3 :
+        again = input('You hit a MEGA JACKPOT! Want to try again?(y/n)')
+        money += 500
+        if again == 'y' :
+            slotgame()
+    elif dice1 == dice2 or dice2 == dice3 or dice1 == dice3 :
+        again = input('You WON! Want to try again?(y/n)')
+        money += 25
+        if again == 'y' :
+            slotgame()
+    else :
+        again = input('You lost... Want to try again?(y/n)')
+        money -= 10
+        if again == 'y' :
+            slotgame()
+#FullSlot()
