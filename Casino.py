@@ -1,11 +1,16 @@
-
-def MoneyFunc() :
+def MoneyFunc():
     f = open('Money.txt', 'r')
     var = f.read().strip()
     return int(float(var))
     f.close
 
-def changeMoney(money) :
+def CrapsMoney(newbalance) :
+    f = open('Money.txt', 'w')
+    f.write(str(newbalance))
+    f.close
+
+
+def changeMoney(money):
     f = open('Money.txt', 'r')
     previousbalance = f.read().strip()
     newbalance = int(float(previousbalance)) + money
@@ -14,31 +19,33 @@ def changeMoney(money) :
     f.write(str(newbalance))
     f.close
 
-def higherlower() :
+
+def higherlower():
     import time
     global money, won
     money = MoneyFunc()
-    def game() :
+
+    def game():
         from random import randint
         global money, won
-        number = randint(0,100)
+        number = randint(0, 100)
         amountbet = int(input('How much do you want to bet? '))
         time.sleep(1)
-        while amountbet > money :
+        while amountbet > money:
             print('You cannot bet more then you have')
             time.sleep(1)
             amountbet = int(input('How much do you want to bet? '))
             time.sleep(1)
         highlow = input('Do you think the number is higher or lower then 50? higher/lower ')
-        if highlow == 'higher' and number > 50 :
+        if highlow == 'higher' and number > 50:
             won = amountbet * 1.25
             print('Nice guess you won $' + str(amountbet * 1.25))
             changeMoney(won)
-        elif highlow == 'lower' and number < 50 :
+        elif highlow == 'lower' and number < 50:
             won = amountbet * 1.25
             print('Nice guess you won $' + str(amountbet * 1.25))
             changeMoney(won)
-        else :
+        else:
             print('Unlucky... You lost ')
             lost = amountbet * -1
             changeMoney(lost)
@@ -52,13 +59,14 @@ def higherlower() :
     print('All you have to do is guess if the number is higher or lower then the current number.')
     time.sleep(2)
     ready = input('Ready to play? yes or no ')
-    while ready == 'yes' :
+    while ready == 'yes':
         game()
         ready = input('Want to play again? yes or no ')
     time.sleep(1)
     print('Come again soon ')
 
-#SLOTS
+
+# SLOTS
 from random import randint
 import time
 
@@ -68,11 +76,14 @@ def FullSlot():
     print('Hello player, lets test your luck!')
     time.sleep(.5)
     slotgame()
+
+
 def slotgame():
     global money
     time.sleep(.4)
     print('You have $' + str(MoneyFunc()))
     Slots()
+
 
 def Slots():
     global money
@@ -140,23 +151,24 @@ def Slots():
     print(slot1, slot2, slot3)
     time.sleep(.4)
 
-    if dice1 == dice2 == dice3 :
+    if dice1 == dice2 == dice3:
         again = input('You hit a MEGA JACKPOT! Want to try again?(y/n)')
         changeMoney(500)
-        if again == 'y' :
+        if again == 'y':
             slotgame()
-    elif dice1 == dice2 or dice2 == dice3 or dice1 == dice3 :
+    elif dice1 == dice2 or dice2 == dice3 or dice1 == dice3:
         again = input('You WON! Want to try again?(y/n)')
         changeMoney(25)
-        if again == 'y' :
+        if again == 'y':
             slotgame()
-    else :
+    else:
         again = input('You lost... Want to try again?(y/n)')
         changeMoney(-10)
-        if again == 'y' :
+        if again == 'y':
             slotgame()
-def craps() :
 
+
+def craps():
     def defineDice():
         global topBot, space, oneDotL, oneDotM, oneDotR, twoDot
         topBot = ' -------'
@@ -171,7 +183,6 @@ def craps() :
         t = [1, 2, 3, 4, 5, 6]
         randomnumber = t[randint(0, len(t) - 1)]
         return randomnumber
-
 
     def printDice(x):
         if x == 1:
@@ -253,7 +264,6 @@ def craps() :
             time.sleep(0.4)
             print('You lose! ')
             money = money - bet
-            print('You now have $' + str(money))
         else:
             dealerguess = abs(dice - dealernum)
             playerguess = abs(dice - player)
@@ -262,7 +272,6 @@ def craps() :
                 time.sleep(0.4)
                 print('The dealer had a closer guess.')
                 money = money - bet
-                print('You now have $' + str(money))
             elif playerguess < dealerguess:
                 print('You guessed closer to the number!')
                 money = money + (bet * 1.5)
@@ -292,7 +301,6 @@ def craps() :
                     time.sleep(0.4)
                     print('You lose! ')
                     money = money - bet
-                    print('You now have $' + str(money))
                 else:
                     dealerguess = abs(dice - dealernum)
                     playerguess = abs(dice - player)
@@ -301,7 +309,6 @@ def craps() :
                         time.sleep(0.4)
                         print('The dealer had a closer guess.')
                         money = money - bet
-                        print('You now have $' + str(money))
                     elif playerguess < dealerguess:
                         print('You guessed closer to the number!')
                         money = money + (bet * 1.5)
@@ -311,39 +318,44 @@ def craps() :
                         print('You tied again so your game is over!')
                         time.sleep(0.4)
         return money
+
     def crapsgame(money):
         print('Welcome to the craps game!')
         time.sleep(0.4)
         print('In this game you will guess a number, 2-12 that will be rolled from two dice!')
         time.sleep(0.4)
-        print('If your guess is closer than the dealer your bet gets multiplied by 1.5 and by 3 if you guess the number!')
+        print(
+            'If your guess is closer than the dealer your bet gets multiplied by 1.5 and by 3 if you guess the number!')
         time.sleep(0.4)
         cont = 'y'
         while cont == 'y':
             money = crapsgameinternal(money)
             cont = input('Would you like to play again? y/n ')
         time.sleep(0.4)
+        CrapsMoney(money)
         print('Thanks for playing!')
-    crapsgame(MoneyFunc())
-    
 
-#Casino Code
+    crapsgame(MoneyFunc())
+
+
+# Casino Code
 import time
+
 print('Welcome to Chissoe Casino')
 time.sleep(1)
 print('We have a large selections of games here')
 time.sleep(1)
 print('Slots, Blackjack, Roulette, Higher or Lower, and Craps')
 activity = input('Would you like to play a game? Check your balance? or Earn some money 1/2/3')
-if activity == '1' :
+if activity == '1':
     gamechoice = input('Would you like to play Slots, Blackjack, Roulette, Higher or Lower, or Craps? 1/2/3/4/5')
-    if gamechoice == '4' :
+    if gamechoice == '4':
         higherlower()
-    elif gamechoice == '1' :
+    elif gamechoice == '1':
         Slots()
-    elif gamechoice == '5' :
+    elif gamechoice == '5':
         craps()
-elif activity == '2' :
+elif activity == '2':
     print('You have $' + str(MoneyFunc()))
-elif activity == '3' :
+elif activity == '3':
     print('earn money')
