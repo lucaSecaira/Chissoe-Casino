@@ -502,8 +502,11 @@ def game() :
         playerScore = dealCard() + playerScore
         print('You have a total of: ' + str(playerScore))
 
-    if playerScore > 21:
-        print('you have lost')
+     if playerScore > 21:
+        print('you have lost, you have bust')
+
+    if dealerScore > 21:
+        print('you have won, dealer has bust')
 
     if playerScore >= dealerScore :
         print('congrats you have won')
