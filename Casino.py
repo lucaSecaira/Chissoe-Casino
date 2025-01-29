@@ -253,6 +253,7 @@ def craps() :
             time.sleep(0.4)
             print('You lose! ')
             money = money - bet
+            print('You now have $' + str(money))
         else:
             dealerguess = abs(dice - dealernum)
             playerguess = abs(dice - player)
@@ -261,6 +262,7 @@ def craps() :
                 time.sleep(0.4)
                 print('The dealer had a closer guess.')
                 money = money - bet
+                print('You now have $' + str(money))
             elif playerguess < dealerguess:
                 print('You guessed closer to the number!')
                 money = money + (bet * 1.5)
@@ -290,6 +292,7 @@ def craps() :
                     time.sleep(0.4)
                     print('You lose! ')
                     money = money - bet
+                    print('You now have $' + str(money))
                 else:
                     dealerguess = abs(dice - dealernum)
                     playerguess = abs(dice - player)
@@ -298,6 +301,7 @@ def craps() :
                         time.sleep(0.4)
                         print('The dealer had a closer guess.')
                         money = money - bet
+                        print('You now have $' + str(money))
                     elif playerguess < dealerguess:
                         print('You guessed closer to the number!')
                         money = money + (bet * 1.5)
