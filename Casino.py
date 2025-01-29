@@ -1,4 +1,3 @@
-#The N-word
 def MoneyFunc():
     f = open('Money.txt', 'r')
     var = f.read().strip()
