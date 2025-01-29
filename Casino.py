@@ -515,7 +515,6 @@ def game() :
     playagain = input('would you like to play blackjack?(y/n)')
     if playagain == 'y':
         game()
-game()
 
 
 
