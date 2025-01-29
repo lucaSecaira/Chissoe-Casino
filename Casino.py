@@ -489,7 +489,7 @@ def game() :
     dealerScore = dealCard() + dealerScore
     print('Dealer has a total of: ' + str(dealerScore))
 
-    if dealerScore < 11:
+    if dealerScore < 16:
         dealerScore = dealCard() + dealerScore
         print('Dealer has a total of: ' + str(dealerScore))
 
