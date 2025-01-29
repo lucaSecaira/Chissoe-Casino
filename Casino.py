@@ -494,9 +494,11 @@ def game() :
 
     if playerScore >= dealerScore :
         print('congrats you have won')
+        changeMoney(500)
 
     elif playerScore <= dealerScore :
         print('im sorry, you have lost')
+        changeMoney(-500)
 
     playagain = input('would you like to play blackjack?(y/n)')
     if playagain == 'y':
@@ -524,6 +526,8 @@ if activity == '1':
         craps()
     elif gamechoice == '3' :
         roulette()
+    elif gamechoice == '1' :
+        game()
 elif activity == '2':
     print('You have $' + str(MoneyFunc()))
 elif activity == '3':
