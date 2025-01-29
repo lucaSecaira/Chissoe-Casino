@@ -166,9 +166,9 @@ print('Slots, Blackjack, Roulette, Higher or Lower, and Craps')
 activity = input('Would you like to play a game? Check your balance? or Earn some money 1/2/3')
 if activity == '1' :
     gamechoice = input('Would you like to play Slots, Blackjack, Roulette, Higher or Lower, or Craps? 1/2/3/4/5')
-    if gamechoice == '4'
+    if gamechoice == '4' :
         higherlower()
-    elif gamechoice == '1'
+    elif gamechoice == '1' :
         Slots()
 elif activity == '2' :
     print('You have $' + str(MoneyFunc())
