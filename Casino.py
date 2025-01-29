@@ -21,7 +21,7 @@ def changeMoney(money):
     f.close
 
 def SellPlasma() :
-    print("You can only sell your plasma once!")
+    print("You get strapped to a chair and a GIANT needle is inserted into your arm!!!")
     time.sleep(0.5)
     print('Now sit back and wait 15 seconds for the procedure...')
     number = 15
