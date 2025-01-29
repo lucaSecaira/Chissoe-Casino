@@ -349,16 +349,16 @@ def roulette():
     from random import randint
     print('Lets play roulette!')
 
-    bet = int(input('How much would you like to bet(100-5000)'))
-    money = money - bet
+    bet = int(input('How much would you like to bet? '))
+    changeMoney(-1 * bet)  
     play = input('You can bet on either black, red, or a  specific number. Enter red or black enter N is you want to bet on a number:')
     spin = randint(1, 37)
     if play == 'N':
         play1 = int(input('Bet a specific number between 1 and 37: '))
 
         if spin == play1:
-            money = money + bet + bet
-            print('You WON! You now have $' + str(money))
+            changeMoney(2 * bet)
+            print('You WON! You now have $' + str(MoneyFunc())
             again = input('Would you like to play again?(y/n)')
             if again == 'y':
                 roulette()
