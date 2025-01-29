@@ -502,11 +502,8 @@ def game() :
         playerScore = dealCard() + playerScore
         print('You have a total of: ' + str(playerScore))
 
-     if playerScore > 21:
-        print('you have lost, you have bust')
-
-    if dealerScore > 21:
-        print('you have won, dealer has bust')
+    if playerScore > 21:
+        print('you have lost')
 
     if playerScore >= dealerScore :
         print('congrats you have won')
@@ -529,11 +526,11 @@ print('Welcome to Chissoe Casino')
 time.sleep(1)
 print('We have a large selections of games here')
 time.sleep(1)
-print('Slots, Blackjack, Roulette, Higher or Lower, and Craps')
+print('Slots, Blackjack, Roulette, Higher or Lower, and Craps' )
 while cont == 'y':
-    activity = input('Would you like to play a game? Check your balance? or Earn some money 1/2/3')
+    activity = input('Would you like to play a game? Check your balance? or Earn some money 1/2/3' )
     if activity == '1':
-        gamechoice = input('Would you like to play Slots, Blackjack, Roulette, Higher or Lower, or Craps? 1/2/3/4/5')
+        gamechoice = input('Would you like to play Slots, Blackjack, Roulette, Higher or Lower, or Craps? 1/2/3/4/5' )
         if gamechoice == '4':
             higherlower()
         elif gamechoice == '1':
@@ -548,4 +545,4 @@ while cont == 'y':
         print('You have $' + str(MoneyFunc()))
     elif activity == '3':
         SellPlasma()
-    cont = input('Would you like to continue?(y/n)')
+    cont = input('Would you like to go back to options?(y/n) ')
