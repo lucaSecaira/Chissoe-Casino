@@ -338,6 +338,63 @@ def craps():
     crapsgame(MoneyFunc())
 
 
+global money
+money = 5000
+def roulette():
+    global money
+    from random import randint
+    print('Lets play roulette!')
+
+    bet = int(input('How much would you like to bet(100-5000)'))
+    money = money - bet
+    play = input('You can bet on either black, red, or a  specific number. Enter red or black enter N is you want to bet on a number:')
+    spin = randint(1, 37)
+    if play == 'N':
+        play1 = int(input('Bet a specific number between 1 and 37: '))
+
+        if spin == play1:
+            money = money + bet + bet
+            print('You WON! You now have $' + str(money))
+            again = input('Would you like to play again?(y/n)')
+            if again == 'y':
+                roulette()
+        else:
+            print('You have lost and now have $' + str(money))
+            again = input('Would you like to play again?(y/n)')
+            if again == 'y':
+                roulette()
+
+    if play == 'red' :
+        if spin % 2 != 0:
+            money = money + bet + bet
+            print('You WON! You now have $' + str(money))
+            again = input('Would you like to play again?(y/n)')
+            if again == 'y':
+                roulette()
+        else:
+            print('You have lost and now have $' + str(money))
+            again = input('Would you like to play again?(y/n)')
+            if again == 'y':
+                roulette()
+
+
+    elif play == 'black' :
+        if spin % 2 == 0:
+            money = money + bet + bet
+            print('You WON! You now have $' + str(money))
+            again = input('Would you like to play again?(y/n)')
+            if again == 'y':
+                roulette()
+        else:
+            print('You have lost and now have $' + str(money))
+            again = input('Would you like to play again?(y/n)')
+            if again == 'y':
+                roulette()
+
+
+roulette()
+
+
 # Casino Code
 import time
 
