@@ -317,13 +317,11 @@ def craps(x) :
         cont = 'y'
         while cont == 'y':
             money = crapsgameinternal(money)
-            print('You have 198745823475092457098234570982457o76768769876 ' + str(money))
             cont = input('Would you like to play again? y/n ')
         time.sleep(0.4)
         print('Thanks for playing!')
-
-    crapsgame(testcash)
-craps(testcash)
+    crapsgame(MoneyFunc())
+    
 
 #Casino Code
 import time
@@ -339,6 +337,8 @@ if activity == '1' :
         higherlower()
     elif gamechoice == '1' :
         Slots()
+    elif gamechoice == '5' :
+        craps()
 elif activity == '2' :
     print('You have $' + str(MoneyFunc()))
 elif activity == '3' :
