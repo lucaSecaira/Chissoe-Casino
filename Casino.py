@@ -155,6 +155,175 @@ def Slots():
         changeMoney(-10)
         if again == 'y' :
             slotgame()
+def craps(x) :
+
+    def defineDice():
+        global topBot, space, oneDotL, oneDotM, oneDotR, twoDot
+        topBot = ' -------'
+        space = '|       |'
+        oneDotL = '| *     |'
+        oneDotM = '|   *   |'
+        oneDotR = '|     * |'
+        twoDot = '| *   * |'
+
+    def rollDice():
+        from random import randint
+        t = [1, 2, 3, 4, 5, 6]
+        randomnumber = t[randint(0, len(t) - 1)]
+        return randomnumber
+
+
+    def printDice(x):
+        if x == 1:
+            print(topBot)
+            print(space)
+            print(oneDotM)
+            print(space)
+            print(topBot)
+        elif x == 2:
+            print(topBot)
+            print(space)
+            print(twoDot)
+            print(space)
+            print(topBot)
+        elif x == 3:
+            print(topBot)
+            print(oneDotL)
+            print(oneDotM)
+            print(oneDotR)
+            print(topBot)
+        elif x == 4:
+            print(topBot)
+            print(twoDot)
+            print(space)
+            print(twoDot)
+            print(topBot)
+        elif x == 5:
+            print(topBot)
+            print(twoDot)
+            print(oneDotM)
+            print(twoDot)
+            print(topBot)
+        elif x == 6:
+            print(topBot)
+            print(twoDot)
+            print(twoDot)
+            print(twoDot)
+            print(topBot)
+
+    def drawLine():
+        print(
+            '------------------------------------------------------------------------------------------------------------')
+
+    def crapsgameinternal(money):
+        print('You have $' + str(money))
+        bet = int(input('How much do you want to bet? '))
+        while bet > money:
+            print('You cannot bet more money than you have!')
+            time.sleep(0.4)
+            bet = int(input('How much do you want to bet? '))
+
+        player = int(input('Guess a number between 2 and 12: '))
+        from random import randint
+        t = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        dealernum = t[randint(0, len(t) - 1)]
+        while dealernum == player:
+            dealernum = t[randint(0, len(t) - 1)]
+        print('The dealer guessed ' + str(dealernum))
+
+        input('Press enter to roll both dice! ')
+        defineDice()
+        numone = rollDice()
+        printDice(numone)
+        print('')
+        numtwo = rollDice()
+        printDice(numtwo)
+        drawLine()
+        dice = numone + numtwo
+        print('You rolled a ' + str(numone + numtwo))
+        if player == dice:
+            print('You guessed the number correctly!')
+            time.sleep(0.4)
+            print('JACKPOT, JACKPOT, JACKPOT')
+            time.sleep(0.4)
+            money = money + (bet * 3)
+            print('Now you have $' + str(money))
+        elif dealernum == dice:
+            print('The dealer guessed the correct number!')
+            time.sleep(0.4)
+            print('You lose! ')
+            money = money - bet
+        else:
+            dealerguess = abs(dice - dealernum)
+            playerguess = abs(dice - player)
+            if dealerguess < playerguess:
+                print('You lose!')
+                time.sleep(0.4)
+                print('The dealer had a closer guess.')
+                money = money - bet
+            elif playerguess < dealerguess:
+                print('You guessed closer to the number!')
+                money = money + (bet * 1.5)
+                time.sleep(0.4)
+                print('You now have $' + str(money))
+            else:
+                print('You tied!')
+                input('Press enter to roll both dice! ')
+                defineDice()
+                numone = rollDice()
+                printDice(numone)
+                print('')
+                numtwo = rollDice()
+                printDice(numtwo)
+                drawLine()
+                dice = numone + numtwo
+                print('You rolled a ' + str(numone + numtwo))
+                if player == dice:
+                    print('You guessed the number correctly!')
+                    time.sleep(0.4)
+                    print('JACKPOT, JACKPOT, JACKPOT')
+                    time.sleep(0.4)
+                    money = money + (bet * 3)
+                    print('Now you have $' + str(money))
+                elif dealernum == dice:
+                    print('The dealer guessed the correct number!')
+                    time.sleep(0.4)
+                    print('You lose! ')
+                    money = money - bet
+                else:
+                    dealerguess = abs(dice - dealernum)
+                    playerguess = abs(dice - player)
+                    if dealernum < playerguess:
+                        print('You lose!')
+                        time.sleep(0.4)
+                        print('The dealer had a closer guess.')
+                        money = money - bet
+                    elif playerguess < dealerguess:
+                        print('You guessed closer to the number!')
+                        money = money + (bet * 1.5)
+                        time.sleep(0.4)
+                        print('You now have $' + str(money))
+                    else:
+                        print('You tied again so your game is over!')
+                        time.sleep(0.4)
+        return money
+    def crapsgame(money):
+        print('Welcome to the craps game!')
+        time.sleep(0.4)
+        print('In this game you will guess a number, 2-12 that will be rolled from two dice!')
+        time.sleep(0.4)
+        print('If your guess is closer than the dealer your bet gets multiplied by 1.5 and by 3 if you guess the number!')
+        time.sleep(0.4)
+        cont = 'y'
+        while cont == 'y':
+            money = crapsgameinternal(money)
+            print('You have 198745823475092457098234570982457o76768769876 ' + str(money))
+            cont = input('Would you like to play again? y/n ')
+        time.sleep(0.4)
+        print('Thanks for playing!')
+
+    crapsgame(testcash)
+craps(testcash)
 
 #Casino Code
 import time
