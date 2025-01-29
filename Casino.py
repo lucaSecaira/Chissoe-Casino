@@ -61,7 +61,7 @@ def higherlower() :
 #SLOTS
 from random import randint
 import time
-money = 5000
+
 
 def FullSlot():
     global money
@@ -152,7 +152,7 @@ def Slots():
             slotgame()
     else :
         again = input('You lost... Want to try again?(y/n)')
-        changeMoney((money * -1))
+        changeMoney(-10)
         if again == 'y' :
             slotgame()
 
@@ -171,7 +171,6 @@ if activity == '1' :
     elif gamechoice == '1' :
         Slots()
 elif activity == '2' :
-    print('You have $' + str(MoneyFunc())
+    print('You have $' + str(MoneyFunc()))
 elif activity == '3' :
-    #Earn money
-
+    print('earn money')
