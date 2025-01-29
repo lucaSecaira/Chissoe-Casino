@@ -464,6 +464,7 @@ def  dealCard() :
         return 11
 
 def game() :
+    hit = 0
     print('Lets play blackjack!')
     time.sleep(1)
     playerScore = 0
