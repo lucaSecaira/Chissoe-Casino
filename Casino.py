@@ -358,25 +358,25 @@ def roulette():
 
         if spin == play1:
             changeMoney(2 * bet)
-            print('You WON! You now have $' + str(MoneyFunc())
+            print('You WON! You now have $' + str(MoneyFunc()))
             again = input('Would you like to play again?(y/n)')
             if again == 'y':
                 roulette()
         else:
-            print('You have lost and now have $' + str(money))
+            print('You have lost and now have $' + str(MoneyFunc()))
             again = input('Would you like to play again?(y/n)')
             if again == 'y':
                 roulette()
 
     if play == 'red' :
         if spin % 2 != 0:
-            money = money + bet + bet
-            print('You WON! You now have $' + str(money))
+            changeMoney(2 * bet)
+            print('You WON! You now have $' + str(MoneyFunc()))
             again = input('Would you like to play again?(y/n)')
             if again == 'y':
                 roulette()
         else:
-            print('You have lost and now have $' + str(money))
+            print('You have lost and now have $' + str(MoneyFunc()))
             again = input('Would you like to play again?(y/n)')
             if again == 'y':
                 roulette()
@@ -384,13 +384,13 @@ def roulette():
 
     elif play == 'black' :
         if spin % 2 == 0:
-            money = money + bet + bet
-            print('You WON! You now have $' + str(money))
+            changeMoney(2 * bet)
+            print('You WON! You now have $' + str(MoneyFunc()))
             again = input('Would you like to play again?(y/n)')
             if again == 'y':
                 roulette()
         else:
-            print('You have lost and now have $' + str(money))
+            print('You have lost and now have $' + str(MoneyFunc()))
             again = input('Would you like to play again?(y/n)')
             if again == 'y':
                 roulette()
