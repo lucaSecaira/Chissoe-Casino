@@ -396,7 +396,7 @@ def roulette():
                 roulette()
 
 
-roulette()
+
 
 
 # Casino Code
@@ -416,6 +416,8 @@ if activity == '1':
         Slots()
     elif gamechoice == '5':
         craps()
+    elif gamechoice == '3' :
+        roulette()
 elif activity == '2':
     print('You have $' + str(MoneyFunc()))
 elif activity == '3':
