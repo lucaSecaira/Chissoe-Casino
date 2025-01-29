@@ -155,7 +155,7 @@ def Slots():
         changeMoney(-10)
         if again == 'y' :
             slotgame()
-def craps(x) :
+def craps() :
 
     def defineDice():
         global topBot, space, oneDotL, oneDotM, oneDotR, twoDot
