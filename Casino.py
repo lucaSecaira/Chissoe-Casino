@@ -395,7 +395,113 @@ def roulette():
             if again == 'y':
                 roulette()
 
+#blackjack
+import random
+import time
+time.sleep(.4)
+money = 5000
 
+
+
+# define card values
+def  dealCard() :
+    cardIndex1 = random.randint(2, 15)
+    # if random cardIndex = 2, then 2 .. if 10, then 10 .. if 11, then 'Jack' .. 12: queen .. 13: king .. 14: ace
+    # so, if cardIndex = 10 - 13, it's value is 10
+
+    # example
+    if cardIndex1 == 2:
+        print('card is a two')
+        return 2
+        # any code here and the card has a value of 10
+
+    elif cardIndex1 == 3:
+        print('card is a three')
+        return 3
+
+    if cardIndex1 == 4:
+        print('card is a three')
+        return 4
+
+    if cardIndex1 == 5:
+        print('card is a five')
+        return 5
+
+    if cardIndex1 == 6:
+        print('card is a six')
+        return 6
+
+    if cardIndex1 == 7:
+        print('card is a seven')
+        return 7
+
+    if cardIndex1 == 8:
+        print('card is a eight')
+        return 8
+
+    if cardIndex1 == 9:
+        print('card is a nine')
+        return 9
+
+    if cardIndex1 == 10:
+        print('card is a ten')
+        return 10
+
+    if cardIndex1 == 11:
+        print('card is a jack')
+        return 10
+
+    if cardIndex1 == 12:
+        print('card is a queen')
+        return 10
+
+    if cardIndex1 == 13:
+        print('card is a king')
+        return 10
+
+    if cardIndex1 == 14:
+        print('card is an ace')
+        return 11
+
+def game() :
+    print('Lets play blackjack!')
+    time.sleep(1)
+    playerScore = 0
+    dealerScore = 0
+
+    # 1 - deal two random cards to the player (print this)
+    playerScore = dealCard() + playerScore
+    playerScore = dealCard() + playerScore
+    print('You have a total of: ' + str(playerScore))
+    dealerScore = dealCard() + dealerScore
+    dealerScore = dealCard() + dealerScore
+    print('Dealer has a total of: ' + str(dealerScore))
+
+    if dealerScore < 11:
+        dealerScore = dealCard() + dealerScore
+        print('Dealer has a total of: ' + str(dealerScore))
+
+
+    if playerScore < 21:
+        hit = input('would you like to hit?(\'y/n\' ')
+
+    if hit == 'y':
+        playerScore = dealCard() + playerScore
+        print('You have a total of: ' + str(playerScore))
+
+    if playerScore > 21:
+        print('you have lost')
+
+    if playerScore >= dealerScore :
+        print('congrats you have won')
+
+    elif playerScore <= dealerScore :
+        print('im sorry, you have lost')
+
+    playagain = input('would you like to play blackjack?(y/n)')
+    if playagain == 'y':
+        game()
+game()
 
 
 
