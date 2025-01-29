@@ -19,6 +19,17 @@ def changeMoney(money):
     f.write(str(newbalance))
     f.close
 
+def SellPlasma() :
+    print("You can only sell your plasma once!")
+    time.sleep(0.5)
+    print('Now sit back and wait 15 seconds for the procedure...')
+    number = 15
+    while number >= 0 :
+        print(str(number))
+        time.sleep(1)
+        number -= 1
+    print('You made $185!')
+    changeMoney(185)
 
 def higherlower():
     import time
@@ -532,4 +543,4 @@ if activity == '1':
 elif activity == '2':
     print('You have $' + str(MoneyFunc()))
 elif activity == '3':
-    print('earn money')
+    SellPlasma()
